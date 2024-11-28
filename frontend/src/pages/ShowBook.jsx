@@ -24,39 +24,51 @@ const ShowBook = () => {
   }, []);
 
   return (
-    <div className='p-4'>
+    <div className="p-6 bg-gray-50 min-h-screen">
       <BackButton />
-      <h1 className='text-3xl my-4'>Show Book</h1>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Id</span>
-            <span>{book._id}</span>
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold text-sky-600 mb-6 text-center">
+          Book Details
+        </h1>
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <Spinner />
           </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Title</span>
-            <span>{book.title}</span>
+        ) : (
+          <div className="bg-white shadow-md rounded-lg border border-gray-200 p-6">
+            <div className="grid grid-cols-1 gap-y-4">
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">ID</span>
+                <span className="text-gray-800">{book._id}</span>
+              </div>
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">Title</span>
+                <span className="text-gray-800 font-semibold text-xl">{book.title}</span>
+              </div>
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">Author</span>
+                <span className="text-gray-800">{book.author}</span>
+              </div>
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">Publish Year</span>
+                <span className="text-gray-800">{book.publishYear}</span>
+              </div>
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">Created At</span>
+                <span className="text-gray-800">
+                  {new Date(book.createdAt).toLocaleString()}
+                </span>
+              </div>
+              <div>
+                <span className="block text-gray-500 font-medium text-lg">Last Updated At</span>
+                <span className="text-gray-800">
+                  {new Date(book.updatedAt).toLocaleString()}
+                </span>
+              </div>
+            </div>
           </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Author</span>
-            <span>{book.author}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Publish Year</span>
-            <span>{book.publishYear}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Create Time</span>
-            <span>{new Date(book.createdAt).toString()}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-            <span>{new Date(book.updatedAt).toString()}</span>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
