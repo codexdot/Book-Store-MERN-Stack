@@ -1,10 +1,11 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
-import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
+import booksRoute from './routes/booksRoute.js';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+const mongoDBURL = process.env.MONGO_URL || 'mongodb://localhost:27017/default-db';
 
 // Middleware for parsing request body
 app.use(express.json());
@@ -29,7 +30,10 @@ app.get('/', (request, response) => {
 app.use('/books', booksRoute);
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(mongoDBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('App connected to database');
     app.listen(PORT, () => {
@@ -37,5 +41,5 @@ mongoose
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.log('MongoDB connection error:', error);
   });

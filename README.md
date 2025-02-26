@@ -1,26 +1,95 @@
-# Book Store MERN stack project
+# Book Store MERN Stack Application
 
-## Lessons
+This is a full-stack MERN (MongoDB, Express, React, Node.js) application for managing a book store. The application allows users to create, read, update, and delete books.
 
-- [x] Lesson 01: Create Node.js project from scratch
-- [x] Lesson 02: Create our first Http Route
-- [x] Lesson 03: Add MongoDB and mongoose to node js
-- [x] Lesson 04: Create Book model with mongoose
-- [x] Lesson 05: Save a new Book with mongoose
-- [x] Lesson 06: Get All Books with mongoose
-- [x] Lesson 07: Get One Book by id with mongoose
-- [x] Lesson 08: Update a Book with mongoose
-- [x] Lesson 09: Delete a book with mongoose
-- [x] Lesson 10: Refactor Node js with express router
-- [x] Lesson 11: CORS policy in Node js and Express js
-- [x] Lesson 12: Create React project, Vite, Tailwind CSS
-- [x] Lesson 13: SPA and Add react router dom
-- [x] Lesson 14: Show Books List in React
-- [x] Lesson 15: Show Book Details in React
-- [x] Lesson 16: Create Book in React
-- [x] Lesson 17: Edit Book in React
-- [x] Lesson 18: Delete Book in React
-- [x] Lesson 19: Show Books List as Card
-- [x] Lesson 20: Make Book Card a single component
-- [x] Lesson 21: Add Book Modal
-- [x] Lesson 22: Improve User Experience (UX) with beautiful alert
+## Prerequisites
+
+- Node.js
+- Docker
+- Docker Compose
+
+## Getting Started
+
+### Backend
+
+1. Navigate to the `backend` directory:
+
+    ```sh
+    cd backend
+    ```
+
+2. Install the dependencies:
+
+    ```sh
+    npm install
+    ```
+
+3. Create a `.env` file in the [backend](http://_vscodecontentref_/1) directory and add the following environment variables:
+
+    ```env
+    PORT=5555
+    MONGO_URL=mongodb://localhost:27017/books-collection
+    ```
+
+4. Start the backend server:
+
+    ```sh
+    npm start
+    ```
+
+### Frontend
+
+1. Navigate to the [frontend](http://_vscodecontentref_/2) directory:
+
+    ```sh
+    cd frontend
+    ```
+
+2. Install the dependencies:
+
+    ```sh
+    npm install
+    ```
+
+3. Start the frontend development server:
+
+    ```sh
+    npm run dev
+    ```
+
+### Docker
+
+.1 Build and start the services using Docker Compose:
+
+    ```sh
+    docker-compose up --build
+    ```
+
+2. Access the frontend application at `http://localhost:5173` and the backend API at `http://localhost:5555`.
+
+## API Endpoints
+
+### Books
+
+- `POST /books`: Create a new book
+- `GET /books`: Get all books
+- `GET /books/:id`: Get a book by ID
+- `PUT /books/:id`: Update a book by ID
+- `DELETE /books/:id`: Delete a book by ID
+
+## Frontend Pages
+
+- `/`: Home page displaying the list of books
+- `/books/create`: Create a new book
+- `/books/details/:id`: View book details
+- `/books/edit/:id`: Edit a book
+- `/books/delete/:id`: Delete a book
+
+## Authors
+
+- Yashraj Singh Solanki
+- MamadTaheri68
+
+## License
+
+This project is licensed under the ISC License.
